@@ -4,6 +4,9 @@ Create a local replacement for YNAB.
 
 I mainly just use YNAB for tagging my transactions, and looking at historical reports. I've decided to try to use elasticsearch and kibabna for reporting historical data, and this repo will be used for tagging transactions downloaded in the qif format from my bank, and then adding those tagged transactions into an elasticsearch instance.  
 
+# Status
+In development, not at all even near to functioning. 
+
 # Main use case
 Upload a QIF file, and make it easy to tag transactions. Push tagged file into
 an elastic search instance. Use the es instance to do reporting.
