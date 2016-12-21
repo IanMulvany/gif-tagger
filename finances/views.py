@@ -66,21 +66,36 @@ def qif_by_date():
     return(jsonify("date ordered"))
 
 @app.route("/qif_by_payee", methods=['GET'])
-def qif_by_date():
+def qif_by_payee():
     return(jsonify("payee ordered"))
 
 @app.route("/qif_by_value", methods=['GET'])
-def qif_by_date():
+def qif_by_value():
     return(jsonify("value ordered"))
+
+@app.route("/test_entries", methods=['GET'])
+def test_entries():
+    row_one = ["a", "b", "c"]
+    row_two = ["1", "2", "3"]
+    row_three = ["x", "y", "z"]
+    return render_template('entries.html', row=row_one)
 
 @app.route("/show_qif", methods=['GET'])
 def show_qif():
     print("in show qif")
+    split_transactions = []
     contents = session['display_value']
     transactions = contents.split("^")
-    output = "<br/></hr>".join(transactions)
-    return(output)
-    # return render_template("hello.html")
+    for x in transactions:
+        print(x)
+        print("next: ")
+        try:
+            transaction = x.split("\n")
+            print(transaction)
+            transactions.append(transactions)
+        except:
+            continue 
+    return render_template('entries.html', transactions=transactions)
 
 @app.route("/one", methods=['GET'])
 def one():
